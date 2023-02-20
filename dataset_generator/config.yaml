@@ -1,0 +1,65 @@
+# -1だと最大リソースを使用
+max_workers: -1
+
+# 作成したデータセットの出力先
+output_dir: E:\ReinVisionOCR\post-craft\dataset
+
+# 背景素材のディレクトリ
+# *.png | *.jpgに対応
+#background_dir: E:\ReinVisionResources\min_chi
+
+# ディレクトリが複数存在する場合はリストに内包する
+background_dir: [
+  E:\ReinVisionOCR\resources\min_chi_v1,
+  E:\ReinVisionOCR\resources\color_canvas,
+]
+
+# フォントパスとサイズ
+font_path: E:\ReinVisionOCR\resources\fonts\msgothic\msgothic001.ttf
+font_size: 23
+
+# 文字色
+text_color: [255, 255, 255, 255]
+
+# 影色
+shadow: False
+shadow_offset: [2, 2]
+shadow_color: [0, 0, 0, 190]
+
+# アウトライン
+outline: True
+outline_width: 1
+outline_color: [0, 0, 0, 255]
+
+# 文字のオフセット
+text_offset: [-2, 0, 2]
+
+# 背景サイズ（最小サイズ、最大サイズ、ステップ、切り抜き位置の幅）
+# 最小サイズは文字がはみ出てるぐらいまでが理想
+bg_x_params: [20, 28, 2, 16]
+bg_y_params: [20, 28, 2, 16]
+
+# 生成数
+n_valid: 3
+
+# 生成文字
+code_params: [
+  # ひらがな
+  [12353, 12438],
+  # カタカナ
+  [12449, 12540],
+  # 数字
+  [65296, 65305],
+  # 英字（大文字）
+  [65, 90],
+  # 英字（小文字）
+  [97, 122],
+  # 記号
+  [＄￥＋＠；：％＆＝’‘／！？「」【】『』［］、。…※＊＜＞（）＃“”～♪],
+  # 記号みたいな数字
+  [①②③④⑤⑥⑦⑧⑨],
+  # テキストに含まれた文字列を生成（漢字は類似性が高いので部分的な使用）
+  [E:\ReinVisionOCR\resources\jpn3.txt],
+  # 推論時はフルテキストを使用
+  #[E:\ReinVisionOCR\resources\jpn.txt],
+]
