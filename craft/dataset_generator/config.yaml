@@ -1,0 +1,152 @@
+# -1だと最大リソースを使用
+max_workers: -1
+
+# 作成したデータセットの出力先
+output_dir: E:\ReinVisionOCR\craft\dataset
+
+# 背景素材のディレクトリ
+# *.png | *.jpgに対応
+background_dir: E:\ReinVisionOCR\resources\min_chi
+
+# ディレクトリが複数存在する場合はリストに内包する
+#background_dir: [
+#  E:\ReinVisionOCR\resources\min_chi_v1,
+#  E:\ReinVisionOCR\resources\color_canvas,
+#]
+
+# フォントパスとサイズ
+font_path: E:\ReinVisionOCR\resources\fonts\msgothic\msgothic001.ttf
+font_size: 23
+
+# 文字色
+text_color: [255, 255, 255, 255]
+
+# 影色
+shadow: False
+shadow_offset: [1, 1]
+shadow_color: [0, 0, 0]
+shadow_alpha: [190, 255, 1]
+
+# アウトライン
+outline: True
+outline_width: 1
+outline_color: [0, 0, 0]
+# 透明度に幅を持たせている理由
+# 背景相性によって透明度が変わって見えることがあるため、それを再現している
+outline_alpha: [190, 255, 1]
+
+# 囲い文字
+brackets: [
+  ["「", "」"],
+  ["『", "』"],
+  ["【", "】"],
+  ["“", "”"],
+  ["‘", "’"],
+  ["＜", "＞"],
+  ["（", "）"],
+  ["", "。"],
+  ["", "、"],
+  ["", "……"],
+  ["", "………"],
+  ["", "…………"],
+  ["", "ーー"],
+  ["", "ーーー"],
+  ["", "ーーーー"],
+  ["", "～～"],
+  ["", "～～～"],
+  ["", "～～～～"],
+  ["……", ""],
+  ["………", ""],
+  ["…………", ""],
+  ["ーー", ""],
+  ["ーーー", ""],
+  ["ーーーー", ""],
+  ["～～", ""],
+  ["～～～", ""],
+  ["～～～～", ""],
+]
+
+word:
+  # 生成数 (train)
+  n_train: 600
+
+  # 生成数 (valid)
+  n_valid: 200
+
+  # 背景サイズと背景の切り抜き位置?幅?間隔
+  bg_x_params: [864, 16]
+  bg_y_params: [864, 16]
+
+  # 画像あたりの最大プロット数
+  #max_plots: 32
+  max_plots: 64
+
+  # wnjpn.dbの場所
+  # wnjpn.dbが見つからない場合は自動でダウンロード
+  wordnet_database_dir: E:\ReinVisionOCR\resources
+
+  # wordnetからの英語と日本語の抽出割合
+  en_ratio: 0.1
+  ja_ratio: 1.0
+
+  # 囲い文字の挿入確立 (1/n)
+  choice_bracket: 2
+
+  # 文字描画領域の余白（最小余白、最大余白、ステップ)
+  margin_x_params: [10, 20, 1]
+  margin_y_params: [10, 20, 1]
+
+text:
+  n_train: 600
+  n_valid: 200
+
+  bg_x_params: [864, 16]
+  bg_y_params: [864, 16]
+
+  #max_plots: 32
+  max_plots: 64
+
+  # テキストデータの場所
+  transdata_path: 
+
+  choice_bracket: 2
+
+  margin_x_params: [10, 20, 1]
+  margin_y_params: [10, 20, 1]
+
+game:
+  n_train: 600
+  n_valid: 200
+
+  transdata_path: E:\ReinVisionOCR\resources
+
+  choice_bracket: 1
+
+  # 行間と行の最大文字数
+  spacing: 8
+  new_line_pos: 27
+
+  # テキスト描画領域（最小開始位置、最大開始位置、ステップ）
+  text_x_params: [2, 20, 1]
+  text_y_params: [2, 60, 1]
+
+  # 背景サイズ（最小サイズ、最大サイズ、ステップ、切り抜き位置の幅）
+  # 最小サイズはテキスト描画位置と文字数によって変化するのでこの値が絶対では無い
+  bg_x_params: [846, 864, 1, 16]
+  bg_y_params: [156, 200, 1, 16]
+
+  # キャンバスサイズとカラー
+  canvas_size: [864, 864]
+  canvas_color: [128, 128, 128]
+
+  # テキストウィンドウカラー
+  window_color: [
+    [ 37,  19,  96],
+    [ 77,  52,  39],
+    [ 86,  94,  18],
+    [ 18,  94,  80],
+    [ 18,  46,  94],
+  ]
+
+  # テキストウィンドウカラーの透明度
+  window_alpha: [160, 200, 1]
